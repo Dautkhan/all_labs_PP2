@@ -1,0 +1,54 @@
+import re
+
+# 1. Найти строку, содержащую 'a', за которой следует ноль или более 'b'
+def match_a_followed_by_b(s):
+    return re.fullmatch(r'a*b*', s) is not None
+
+# 2. Найти строку, содержащую 'a', за которой следует 2 или 3 'b'
+def match_a_followed_by_two_or_three_b(s):
+    return re.fullmatch(r'ab{2,3}', s) is not None
+
+# 3. Найти последовательности строчных букв, соединенных подчеркиванием
+def find_sequences_with_underscore(s):
+    return re.findall(r'\b[a-z]+_[a-z]+\b', s)
+
+# 4. Найти последовательности из одной заглавной буквы, за которой следуют строчные
+def find_uppercase_followed_by_lowercase(s):
+    return re.findall(r'[A-Z][a-z]+', s)
+
+# 5. Найти строку, содержащую 'a', за которой следует что угодно, но оканчивающуюся на 'b'
+def match_a_followed_by_anything_ending_in_b(s):
+    return re.fullmatch(r'a.*b', s) is not None
+
+# 6. Заменить все пробелы, запятые и точки на двоеточие
+def replace_space_comma_dot(s):
+    return re.sub(r'[ ,.]', ':', s)
+
+# 7. Преобразовать строку в snake_case в camelCase
+def snake_to_camel(s):
+    return ''.join(word.capitalize() if i > 0 else word for i, word in enumerate(s.split('_')))
+
+# 8. Разделить строку по заглавным буквам
+def split_at_uppercase(s):
+    return re.findall(r'[A-Z][^A-Z]*', s)
+
+# 9. Вставить пробелы между словами, начинающимися с заглавных букв
+def insert_spaces_before_capitals(s):
+    return re.sub(r'([A-Z])', r' \1', s).strip()
+
+# 10. Преобразовать строку из camelCase в snake_case
+def camel_to_snake(s):
+    return re.sub(r'([a-z])([A-Z])', r'\1_\2', s).lower()
+
+# Примеры использования
+if __name__ == "__main__":
+    print(match_a_followed_by_b("abbb"))  # True
+    print(match_a_followed_by_two_or_three_b("abb"))  # True
+    print(find_sequences_with_underscore("hello_world test_case"))  # ['hello_world', 'test_case']
+    print(find_uppercase_followed_by_lowercase("Hello World Test"))  # ['Hello', 'World', 'Test']
+    print(match_a_followed_by_anything_ending_in_b("axb"))  # True
+    print(replace_space_comma_dot("Hello, world. Python is fun"))  # Hello:world:Python:is:fun
+    print(snake_to_camel("hello_world"))  # HelloWorld
+    print(split_at_uppercase("HelloWorldTest"))  # ['Hello', 'World', 'Test']
+    print(insert_spaces_before_capitals("HelloWorldTest"))  # 'Hello World Test'
+    print(camel_to_snake("HelloWorldTest"))  # hello_world_test
