@@ -1,0 +1,50 @@
+def square_generator(n):
+    for i in range(n + 1):
+        yield i ** 2
+
+N = 5
+for square in square_generator(N):
+    print(square, end=" ")
+
+
+# 2 task
+
+def even_numbers(n):
+    for i in range(0, n + 1, 2):
+        yield i
+
+n = int(input("Введите число: "))
+print(",".join(map(str, even_numbers(n))))
+
+# 3 task 
+
+def divisible_by_3_and_4(n):
+    for i in range(n + 1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
+
+n = int(input("Введите число: "))
+print(list(divisible_by_3_and_4(n)))
+
+
+# 4 task
+
+
+def squares(a, b):
+    for i in range(a, b + 1):
+        yield i ** 2
+
+for square in squares(3, 7):
+    print(square)
+
+
+# 5 task
+
+def countdown(n):
+    for i in range(n, -1, -1):
+        yield i
+
+for num in countdown(5):
+    print(num, end=" ")
+
+

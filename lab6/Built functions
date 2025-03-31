@@ -1,0 +1,54 @@
+#1 task
+import math
+numbers = [1, 2, 3, 4] 
+result = math.prod(numbers)
+print(result)
+
+# 2 task
+def count_letters(text):
+    up_count = sum(1 for char in text if char.isupper())
+    low_count = sum(1 for char in text if char.islower())
+    print(f"Count of uppercase letters: {up_count}")
+    print(f"Count of lowercase letters: {low_count}")
+    
+text = input()
+count_letters(text)
+
+# 3 task
+def palindrome(text):
+    text = text.lower()
+    return text == text[::-1]
+text = input()
+if palindrome(text):
+    print("The text is a palindrome.")
+else:
+    print("The text is not a palindrome.")
+
+# 4 task
+
+import time 
+import math
+
+def delayed_sqrt(number, delay_ms):
+    time.sleep(delay_ms/1000)
+    sqrt_number = math.sqrt(number)
+    print(f"Square root of {number} after {delay_ms} miliseconds is {sqrt_number}")
+    
+number = int(input("Enter a number: "))
+ms = int(input("Enter a miliseconds: "))
+delayed_sqrt(number, ms)
+
+# 5 task
+
+def check(tuple):
+    return all(tuple)
+
+tuple1 = (1, True, "Hello")
+tuple2 = (0, False, "World")
+
+print(check(tuple1))
+
+print(check(tuple2))
+    
+
+

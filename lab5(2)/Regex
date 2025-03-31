@@ -1,0 +1,107 @@
+import re
+
+pattern = r"ab*"
+test_strings = ["a", "ab", "abb", "ac", "b", "aabb"]
+
+for string in test_strings:
+    if re.fullmatch(pattern, string):
+        print(f"Совпало: {string}")
+
+
+        # 2 task
+
+        import re
+
+pattern = r"ab{2,3}"
+test_strings = ["abb", "abbb", "abbbb", "a", "ab"]
+
+for string in test_strings:
+    if re.fullmatch(pattern, string):
+        print(f"Совпало: {string}")
+
+
+        # 3 task
+
+        import re
+
+pattern = r"\b[a-z]+_[a-z]+\b"
+test_strings = ["hello_world", "snake_case", "test123", "helloWorld"]
+
+for string in test_strings:
+    if re.search(pattern, string):
+        print(f"Совпало: {string}")
+
+        # 4 task
+
+        import re
+
+pattern = r"[A-Z][a-z]+"
+test_strings = ["Hello", "CamelCase", "PYTHON", "javaScript"]
+
+for string in test_strings:
+    matches = re.findall(pattern, string)
+    print(f"{string}: {matches}")
+
+# 5 task
+
+import re
+
+pattern = r"a.*b$"
+test_strings = ["ab", "a123b", "axb", "ac", "b", "abc"]
+
+for string in test_strings:
+    if re.fullmatch(pattern, string):
+        print(f"Совпало: {string}")
+
+
+    # 6 task
+
+    import re
+
+pattern = r"[ ,.]"
+text = "Hello, world. How are you?"
+result = re.sub(pattern, ":", text)
+print(result)
+
+
+# 7 task
+
+import re
+
+def snake_to_camel(snake_str):
+    words = snake_str.split('_')
+    return words[0] + ''.join(word.capitalize() for word in words[1:])
+
+print(snake_to_camel("hello_world_test"))
+
+# 8 task
+
+import re
+
+text = "HelloWorldPython"
+words = re.split(r'(?=[A-Z])', text)
+print(words)  # ['Hello', 'World', 'Python']
+
+# 9 task
+import re
+
+text = "InsertSpacesBetweenWords"
+result = re.sub(r'([A-Z])', r' \1', text).strip()
+print(result)  # Insert Spaces Between Words
+
+
+# 10 task
+
+import re
+
+def camel_to_snake(text):
+    return re.sub(r'([A-Z])', r'_\1', text).lower().strip('_')
+
+print(camel_to_snake("CamelCaseExample"))  # camel_case_example
+
+
+
+
+
+
+
